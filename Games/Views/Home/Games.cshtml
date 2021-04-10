@@ -1,0 +1,85 @@
+﻿@model IEnumerable<Games.Models.game>
+
+@{
+    ViewBag.Title = "Games";
+}
+
+<h2>Games</h2>
+
+
+<table id="myTable" class="display" >
+    <thead class="bg-dark">
+        <tr>
+            <th class="image">
+                Image
+            </th>
+            <th class="title">
+                Title
+            </th>
+
+
+            <th class="description">
+                Description
+            </th>
+            <th class="category">
+                Category
+            </th>
+            <th class="rating">Best Rated</th>
+            <th class="comments">Most Commented</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            
+                <tr>
+                    
+                        <td class="txc image"><a href="@Url.Action("game", "Home", new { gameID=item.Id })"><img src="@Html.DisplayFor(modelItem => item.image)" width="100" />
+</a>
+</td>
+                        <td class="txc title">
+                            @Html.DisplayFor(modelItem => item.title)
+
+                        </td>
+
+
+                        <td class="txc description">
+                            @Html.DisplayFor(modelItem => item.description)
+                        </td>
+                        <td class="txc category">
+                            @Html.DisplayFor(modelItem => item.category)
+                        </td>
+                        <td class="txc rating">
+                            @{
+                                int rate =0;
+                                float ratevalue =0;
+                               
+
+                                    foreach (int i in item.totalRating)
+                                    {
+                                        rate = rate +i;
+                                    }
+                                    if (rate!=0)
+                                    {
+                                        ratevalue = (rate / item.totalRating.Count);
+                                    }
+
+                                }
+
+
+                      
+
+                            @ratevalue <i class='fa fa-star fa-fw yellow'></i>
+                        </td>
+                        <td class="txc comments"> @item.totalRating.Count comment(s)</td>
+                 
+</tr>
+              
+                }
+        </tbody>
+</table>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.js"></script>
+<script>
+    $(document).ready(function () {
+            $('#myTable').DataTable();
+        });</script>

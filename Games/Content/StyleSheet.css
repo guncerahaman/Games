@@ -1,0 +1,445 @@
+﻿html {
+    height: 100%;
+}
+body {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    background-image: linear-gradient(140deg, #6ce4ef 5%,#c1ff9b 50%, #fefc77 75%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+header {
+    background-color: #f391b3;
+}
+.randomgames {
+    display:flex;
+    flex-direction:row;
+    align-content:center;
+}
+.randomgames img{
+    padding:0.5rem;
+}
+footer {
+    margin-top:1.5rem;
+    background-color: #f391b3;
+}
+@media (min-width:1400px) {
+    .myIframe {
+        width: 1200px;
+        height: 700px;
+    }
+    .mygrid {
+        grid-template-columns: repeat(6, 16.66%);
+    }
+}
+    @media (min-width:1200px) and (max-width:1399px){
+        .myIframe {
+            width: 1000px;
+            height: 700px;
+        }
+        .mygrid {
+            grid-template-columns: repeat(5, 20%);
+        }
+    }
+
+@media (min-width:993px) and (max-width:1199px) {
+    .mygrid {
+        grid-template-columns: repeat(5, 20%);
+    }
+
+    .gamecontainer {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .right {
+        flex: 3;
+        order: 2;
+    }
+
+    .left {
+        flex: 2;
+        order: 2;
+    }
+
+    #myframe {
+        flex: 4;
+        order: 1;
+    }
+
+    .myIframe {
+        width: 700px;
+        height: 600px;
+    }
+
+    #comments {
+        padding-left: 1rem;
+        flex: 1;
+        order: 2;
+    }
+
+    .description, .comments, .title, .category {
+        display: table-cell;
+    }
+}
+
+    @media (min-width:769px) and (max-width:992px) {
+        .mygrid {
+            grid-template-columns: repeat(4, 25%);
+        }
+
+        .description {
+            display: none;
+        }
+
+        .myIframe {
+            width: 730px;
+            height: 500px;
+        }
+    }
+
+    @media (min-width:501px) and (max-width:768px) {
+        .mygrid {
+            grid-template-columns: 33.3% 33.3% 33.3%;
+        }
+
+        .description, .comments {
+            display: none;
+        }
+
+        .myIframe {
+            width: 501px;
+            height: 400px;
+        }
+
+        .randomgames {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+
+    @media (min-width:321px) and (max-width:500px) {
+        .mygrid {
+            grid-template-columns: 50% 50%;
+        }
+
+        .randomgames {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .description, .comments, .title {
+            display: none;
+        }
+
+        .myIframe {
+            width: 320px;
+            height: 400px;
+        }
+
+        .whtcon {
+            padding: 0.2rem;
+        }
+    }
+
+    @media (max-width:320px) {
+        .mygrid {
+            grid-template-columns: 100%;
+        }
+
+        .randomgames {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .description, .comments, .title, .category {
+            display: none;
+        }
+
+        .myIframe {
+            width: 300px;
+            height: 400px;
+        }
+
+        .whtcon {
+            padding: 0;
+        }
+    }
+
+    .bg {
+        width: 100%;
+        background-color: transparent;
+        background-image: url("Images/yellow.png");
+        background-size: contain;
+        background-repeat: repeat-x;
+        height: 40px;
+    }
+
+    .logo {
+        color: #c1ff9b;
+        font-family: 'Pirata One', cursive;
+        text-shadow: 0.1rem 0.1rem 0.1rem #042d64;
+        font-size: 3rem;
+    }
+
+        .logo:hover {
+            color: white;
+        }
+
+    a {
+        color: #c1ff9b;
+        text-decoration: none;
+        text-shadow: 0.1rem 0.1rem 0.1rem #042d64;
+    }
+
+        a:hover {
+            text-decoration: none;
+            color: darksalmon;
+        }
+
+    .float-left {
+        float: left;
+    }
+
+    .txr {
+        text-align: right;
+    }
+
+    .bg-dark {
+        background-color: #f4ff5c;
+    }
+
+    .txc {
+        text-align: center;
+    }
+
+    .clear {
+        clear: both;
+    }
+
+    .menu {
+        padding: 0;
+        margin: 0;
+        color: #c1ff9b;
+        font-size: 1rem;
+        font-weight: bold;
+        font-family: Calibri;
+    }
+
+    .smalltext {
+        font-size: 1rem;
+    }
+
+    .mediumtext {
+        font-size: 1.5rem;
+    }
+
+    .bigtext {
+        font-size: 2.5rem;
+    }
+
+    .gianttext {
+        font-size: 4rem;
+    }
+
+    .b {
+        font-weight: bold;
+    }
+
+    .green {
+        color: #c1ff9b;
+    }
+
+    .yellow {
+        color: #fefc77;
+    }
+
+    .blue {
+        color: #6ce4ef;
+    }
+
+    .gray {
+        color: #252525;
+    }
+
+    .pink {
+        color: #f391b3;
+    }
+
+    .pl5 {
+        padding-left: 2rem;
+    }
+
+    .pt5 {
+        padding-top: 2rem;
+    }
+
+    .textbox {
+        border-radius: 20px;
+        width: auto;
+    }
+
+    .dropbox {
+        height: 1.375rem;
+        border-radius: 20px;
+    }
+
+    #app {
+        height: 100vh;
+        /* grid container settings */
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto 1fr auto;
+        grid-template-areas: 'header' 'bg' 'main' 'footer';
+    }
+
+    .header h4 {
+        margin-top: -1rem;
+    }
+
+    #app > header {
+        grid-area: header;
+    }
+
+      #app > .bg {
+        grid-area: bg;
+    }
+
+    #app > main {
+        grid-area: main;
+        padding: 15px 5px 10px 5px;
+    }
+
+     
+    #app > footer {
+        grid-area: footer;
+    }
+
+#comments {
+    background-color: #f391b3;
+    overflow-wrap: break-word;
+    min-width: 160px;
+}
+
+    .gamecontainer {
+        margin: 0;
+        padding: 1rem 2rem;
+    }
+
+    dt {
+        background-color: darkseagreen;
+    }
+
+    .mybtn {
+        padding: 0.4rem 0.5rem;
+        border: none;
+        border-radius: 20px;
+        background-color: #f391b3;
+        color: white;
+    }
+
+    #menu {
+        padding: 0;
+        margin: 0;
+    }
+
+    .mymenubtn {
+        border-radius: 20px;
+        background-color: #fefc77;
+        color: #26544d;
+        padding: 0.2rem 1.5rem;
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+        margin-left: 0.3rem;
+        min-width: 60px;
+        text-align: center;
+        display: inline-block;
+        font-size: 1.1rem;
+        text-shadow: none;
+        font-family: 'Pirata One', cursive;
+    }
+
+        .mymenubtn:hover {
+            color: white;
+            background-color: #6ce4ef;
+        }
+
+        .mymenubtn:active {
+            color: white;
+            background-color: #c1ff9b;
+        }
+
+    .mybtn:hover {
+        background-color: #6ce4ef;
+        color: white;
+    }
+
+    .whtcon {
+        background-color: white;
+        width: 90%;
+        margin: auto;
+        padding: 2rem 1rem;
+        min-height: 60vh;
+    }
+
+        .whtcon a {
+            color: black;
+            text-shadow: none;
+        }
+
+            .whtcon a:hover {
+                color: darkolivegreen;
+                text-shadow: none;
+            }
+
+    .mygrid {
+        display: grid;
+        grid-column-gap: 0;
+        grid-row-gap: 1rem;
+    }
+
+    .gridItem {
+        padding: 1rem 1rem 0 1rem;
+        text-align: center;
+    }
+
+        .gridItem img {
+            max-width: 100%;
+            box-shadow: #f391b3 0.5rem 1.6rem;
+        }
+
+            .gridItem img:hover {
+                box-shadow: #6ce4ef 0.5rem 1.6rem;
+            }
+
+
+
+
+    /* Rating Star Widgets Style */
+    .rating-stars ul {
+        list-style-type: none;
+        padding: 0;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+    }
+
+        .rating-stars ul > li.star {
+            display: inline-block;
+        }
+
+            /* Idle State of the stars */
+            .rating-stars ul > li.star > i.fa {
+                font-size: 1.2rem; /* Change the size of the stars */
+                color: #ccc; /* Color on idle state */
+            }
+
+            /* Hover state of the stars */
+            .rating-stars ul > li.star.hover > i.fa {
+                color: #FFCC36;
+            }
+
+            /* Selected state of the stars */
+            .rating-stars ul > li.star.selected > i.fa {
+                color: #FF912C;
+            }

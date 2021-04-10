@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Games 4 Kids - @ViewBag.Title</title>
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
+    <link href="~/Content/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link href="~/Content/StyleSheet.css" rel="stylesheet" />
+    <link rel="icon" href="~/Content/Images/favicon.png" type="image/x-icon"/ >
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Pirata+One&display=swap" rel="stylesheet">
+    </head>
+<body>
+    <div id="app">
+
+        <header>
+
+            <div class="header gamecontainer">
+                <div class="left">
+                    <div class="menu">@Html.ActionLink("Games 4 kids", "Index", "Home", new { area = "" }, new { @class = "logo b" })</div>
+                </div>
+                <div class="right txr">
+
+                    @*@Html.Partial("_LoginPartial")*@
+                    <nav id="#menu">
+                        @Html.ActionLink("Home", "Index", "Home", null, new { @class = "mymenubtn" }) @Html.ActionLink("Games", "Games", "Home", null, new { @class = "mymenubtn" })  @Html.ActionLink("About", "About", "Home", null, new { @class = "mymenubtn" })
+
+                    </nav>
+
+                </div>
+            </div>
+        </header>
+        <div class="bg"></div>
+       
+
+        <main>
+          
+            <div class="whtcon">
+                @RenderBody()
+            </div>
+        </main>
+        <footer class="txc">
+            <p>&copy; @DateTime.Now.Year - <a href="http://guncerahaman.co.uk" target="_blank">Gunce Rahaman</a><br />Disclaimer: This is a non-profit site, no ads displayed, if you are rightful owner of the games and would like them to be taken off the website, please <br /> <a href="mailto:me@guncerahaman.co.uk">send me an e-mail</a></p>
+        </footer>
+        <div class="bgdown"></div>
+    </div>
+
+   
+
+    @RenderSection("scripts", required: false)
+
+</body>
+</html>

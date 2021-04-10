@@ -1,0 +1,60 @@
+﻿
+@model IEnumerable<Games.Models.game>
+@{
+                /**/
+
+                ViewBag.Title = "Ad free - non flash -  HTML5 games for kids";
+}
+
+
+@using (Html.BeginForm(new { @class = "" }))
+{
+    <div class="txr pt5">
+        @Html.TextBox("searchString", null, new { @class = "textbox" })
+
+
+        @Html.DropDownList("category", null, "All categories", new { @class = "dropbox" })
+
+        <input class="mybtn" type="submit" value="Search" />
+    </div>
+}
+@if (ViewBag.mostplayed !=null)
+{
+<h4 class="b mediumtext txc bg-dark">Last 10 : Most recent games</h4>
+}
+else
+{
+<h4 class="b mediumtext txc bg-dark">Search Results</h4>
+}
+
+<div class="mygrid">
+
+    @foreach (var item in Model)
+    {
+        <a href="@Url.Action("game", "Home", new { gameID=item.Id })">
+            <div class="gridItem">
+                <img src="@item.image" width="130" />
+                <br />
+                <label>@item.title</label>
+            </div>
+        </a>
+    }
+</div>
+@if (ViewBag.mostplayed != null)
+{
+    <h4 class="b mediumtext txc bg-dark">Top 10 : Most played games</h4>
+    <div class="mygrid">
+
+        @foreach (var item in ViewBag.mostplayed)
+        {
+            <a href="@Url.Action("game", "Home", new { gameID=item.Id })">
+                <div class="gridItem">
+                    <img src="@item.image" width="130" />
+                    <br />
+                    <label>@item.title</label>
+                </div>
+            </a>
+        }
+    </div>
+}
+

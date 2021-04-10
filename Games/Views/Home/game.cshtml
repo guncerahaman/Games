@@ -1,0 +1,123 @@
+﻿@model Games.Models.game
+
+@{
+    ViewBag.Title = Model.title;
+
+    var ratingSum = ViewBag.RatingSum;
+    var ratingCount = ViewBag.RatingCount;
+    decimal rating = 0;
+    if (ratingCount > 0)
+    {
+        rating = (ratingSum / ratingCount);
+    }
+    var totalRating = decimal.Parse(rating.ToString());
+
+
+
+}
+
+<h2 class="txc">@Model.title</h2>
+<h5 class="txc">This game was played @Model.playcount times.</h5>
+<div class="gamecontainer">
+    <div id="myframe" class="txc">
+
+        <iframe class="myIframe" frameborder='0' scrolling='no' src='@Model.link' allowfullscreen></iframe>
+    </div>
+    <div id="comments">
+        <h5 class="b mediumtext">Comments:</h5>
+        @foreach (var item in ViewBag.comments)
+        {
+            <div>
+                <label class="bg-dark">@item.date</label><br />
+
+                @{
+                    if (item.name == null)
+                    {
+                        <label class="green b"> Anonymous</label>
+
+                    }
+                    else
+                    {
+                        <label class="green b"> @item.name</label>
+                    }
+
+
+                }<br />
+
+                <label>@item.rating<i class='fa fa-star fa-fw yellow'></i></label> <label class="gray">@item.comment1</label>
+
+                <br />
+            </div>
+        }
+    <details>
+        <summary class="b">Add a Comment</summary>
+        <br />
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+
+            <div class='rating-stars'>
+                <ul id='stars'>
+                    <li class='star' title='Poor' data-value='1'>
+                        <i class='fa fa-star fa-fw'></i>
+                    </li>
+                    <li class='star' title='Fair' data-value='2'>
+                        <i class='fa fa-star fa-fw'></i>
+                    </li>
+                    <li class='star' title='Good' data-value='3'>
+                        <i class='fa fa-star fa-fw'></i>
+                    </li>
+                    <li class='star' title='Excellent' data-value='4'>
+                        <i class='fa fa-star fa-fw'></i>
+                    </li>
+                    <li class='star' title='WOW!!!' data-value='5'>
+                        <i class='fa fa-star fa-fw'></i>
+                    </li>
+                </ul>
+                <ul style="display:none">
+                    <li>
+                        <input type="radio" value="1" name="rating">
+
+                    </li>
+                    <li>
+                        <input type="radio" value="2" name="rating">
+
+                    </li>
+                    <li>
+                        <input type="radio" value="3" name="rating">
+
+                    </li>
+                    <li>
+                        <input type="radio" value="4" name="rating">
+
+                    </li>
+                    <li>
+                        <input type="radio" value="5" name="rating">
+
+                    </li>
+                </ul>
+            </div>
+            <input type="text" name="name" placeholder="Your Name" size="16" /><br /><br />
+            <textarea name="comment1" placeholder="Your comment" rows="10" cols="16" style="resize:vertical" required></textarea><br /><br /> <input type="submit" value="Confirm" class="" />
+        }
+
+    </details>
+    </div>
+
+</div>
+<div><h5>@Model.title Description</h5><p>@Model.description</p></div>
+<h5 class="txc">Other games from @Model.category category</h5>
+<div class="randomgames txc">
+
+    @foreach (var item in ViewBag.games)
+    {
+        <a href="@Url.Action("game", "Home", new { gameID=item.Id })">
+
+            <img src="@item.image" width="130" />
+
+        </a>
+    }
+</div>
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script src="~/Scripts/star.js"></script>
